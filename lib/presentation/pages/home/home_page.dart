@@ -1,3 +1,4 @@
+import 'package:cultara/presentation/pages/museum/museum_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:cultara/presentation/pages/detail/article_detail_page.dart';
 import 'package:cultara/presentation/pages/event/event_list_page.dart';
@@ -233,16 +234,24 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildDigitalMuseumCard(BuildContext context) {
-    return Container(
-      height: 150,
-      decoration: BoxDecoration(
-        image: const DecorationImage(
-          image: AssetImage('assets/images/museum_digital_bg.jpg'),
-          fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const MuseumScreen()),
+        );
+      },
+      child: Container(
+        height: 150,
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/images/museum_digital_bg.jpg'),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(15),
         ),
-        borderRadius: BorderRadius.circular(15),
+        child: null,
       ),
-      child: null,
     );
   }
 
